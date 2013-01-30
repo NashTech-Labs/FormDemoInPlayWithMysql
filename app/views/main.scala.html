@@ -1,0 +1,28 @@
+@(title: Html)(content: Html)
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/bootstrap-alert.js")" type="text/javascript"></script>
+    </head>
+    <header class="topbar">
+            <h1 class="fill">
+                <a href="/">Play 2.0 Form Demo &mdash; MySql</a>
+                <a href="signout" style="float: right;"><input type="button" class="btn primary" value="Signout"></a>
+            </h1>
+   </header>
+   <section id="main">
+   @if(Common.alert.alertType != ""){
+   		<div class="alert-message @Common.alert.alertType">  
+  			<a class="close" data-dismiss="alert">×</a>  
+  			<strong style="text-transform: capitalize;">@Common.alert.alertType ! </strong>@Common.alert.message  
+		</div> 
+		}
+            @content
+             <footer><a href="/">Back To Home Page</a></footer>
+   </section>
+</html>

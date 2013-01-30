@@ -1,0 +1,53 @@
+@(employeeDetailForm: Form[EmployeeDetail],employee: models.Employee) 
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main(Html("User Created!")) {
+
+<fieldset>
+	<h1>Welcome @employee.email !</h1>
+	
+	 @helper.form(action = routes.Application.saveEmployeeDetail) {
+        
+        <fieldset>
+            <legend>Employee Detail Form</legend>
+            
+           
+            
+            @inputText(
+                employeeDetailForm("name"), '_label -> "Name",
+                '_help -> "Enter your Name."
+            )
+            
+            @inputText(
+                employeeDetailForm("designation"), '_label -> "Designation",
+                '_help -> "Enter your Name."
+            )
+            @textarea(
+                employeeDetailForm("address"), '_label -> "Address",
+                '_help -> "Enter your Name."
+            )
+            @inputText(
+                employeeDetailForm("contact_no"), '_label -> "Contact No",
+                '_help -> "Enter your Name."
+            )
+            
+            
+            
+        </fieldset>
+        
+              
+       
+        
+        <div class="actions">
+            <input type="submit" class="btn btn primary" value="Save">
+            <a href="employeeDetail"><input type="button" value="Cancel" class="btn btn-primary"/> </a>
+        </div>
+        
+    }
+           
+	
+</fieldset>
+
+}
